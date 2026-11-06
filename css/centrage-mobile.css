@@ -1,0 +1,244 @@
+/* =========================================================
+   Centrage en responsive (≤ 760px, même seuil que styles.css)
+   À charger EN DERNIER dans le <head>, après form-contact.css,
+   pour passer devant da-cv.css.
+
+   Principe : on centre les BLOCS et les textes courts
+   (titres, accroches, boutons, étiquettes).
+   Les paragraphes longs, la frise et le formulaire restent alignés
+   à gauche à l'intérieur de leur bloc centré : un texte long centré
+   n'a pas de point de départ fixe pour l'œil (WCAG 1.4.8, RGAA 10.x,
+   lecture difficile en cas de dyslexie ou de zoom).
+   ========================================================= */
+   @media (max-width: 760px) {
+
+    /* ---------- Tous les conteneurs passent en 1 colonne centrée ---------- */
+    .apropos,
+    .cursus,
+    .memoire,
+    .contact-grille,
+    .grille-projets {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      gap: 32px;
+    }
+    .apropos > *,
+    .cursus > *,
+    .memoire > *,
+    .contact-grille > *,
+    .grille-projets > * {
+      width: 100%;
+      max-width: 36rem;
+    }
+  
+    /* ---------- Accueil ---------- */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+    }
+    /* Photo centrée : le cadre ET la photo dans le cadre */
+    .hero .frame {
+      justify-self: center;
+      margin-inline: auto;
+    }
+    .hero .photo {
+      inset-inline: 6%;            /* même marge à gauche et à droite */
+      width: auto;
+    }
+    /* Les deux aplats décoratifs deviennent symétriques, sinon la photo paraît décalée */
+    .hero .frame::before { inset: 0 10% 14% 10%; }
+    .hero .frame::after  { inset: 30% 0 0 0; }
+    .hero-text { text-align: center; }
+    .pitch { margin-inline: auto; }
+    .cta { justify-content: center; }
+  
+    /* ---------- À propos ---------- */
+    .apropos .lead {
+      text-align: center;
+      margin-inline: auto;
+    }
+    .apropos .txt p:not(.lead) { margin-inline: auto; }   /* bloc centré, texte à gauche */
+    .mini-title { text-align: center; }
+    .frise {
+      max-width: 30rem;
+      margin-inline: auto;
+    }
+  
+    /* ---------- Projets ---------- */
+    .outils-projets { margin-inline: auto; }
+    .themes__liste { justify-content: center; }
+    .cp-visuel {
+      display: flex;
+      justify-content: center;
+    }
+    .cp-corps { text-align: center; }
+    .cp-meth {
+      justify-content: center;
+      padding-left: 0;
+    }
+    .cp-lien { justify-content: center; }
+  
+    /* ---------- Mémoire ---------- */
+    .memoire-visuel {
+      display: flex;
+      justify-content: center;
+    }
+    .memoire-couv {
+      width: 100%;
+      max-width: 260px;
+      height: auto;
+    }
+    .memoire-txt .surtitre,
+    .memoire-txt h3,
+    .memoire-soustitre { text-align: center; }
+    .memoire-infos > div { text-align: center; }
+    .memoire-txt .cta { justify-content: center; }
+  
+    /* ---------- Contact ---------- */
+    .contact-infos { text-align: center; }
+    .contact-infos .intro { margin-inline: auto; }
+    .contact-links { justify-content: center; }
+  
+    .formulaire {
+      width: 100%;
+      max-width: 36rem;
+      margin-inline: auto;
+      text-align: left;             /* libellés et champs alignés à gauche */
+    }
+    .formulaire > h3 { text-align: center; }
+    .formulaire .btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+    }
+  }
+  
+  /* =========================================================
+     Boutons du header (menu, thème, taille du texte) plus discrets
+     sur téléphone.
+     Visuel réduit à 38px, mais la zone cliquable reste à 46px
+     grâce au pseudo-élément invisible : on garde la cible tactile
+     confortable (WCAG 2.5.5 AAA = 44px ; 2.5.8 AA = 24px minimum).
+     ========================================================= */
+  @media (max-width: 760px) {
+    header .tools {
+      gap: 8px;                    /* 8px d'écart = zones tactiles qui se touchent sans se chevaucher */
+      padding-left: 0;
+      border-left: 0;              /* retire le trait vertical entre le menu et les outils */
+    }
+    header nav { margin-right: 8px; }
+  
+    header .tool {
+      position: relative;
+      width: 38px;
+      height: 38px;
+      min-width: 0;
+      min-height: 0;
+      padding: 0;
+      border-width: 1.5px;
+      font-size: 16px;             /* en px : les outils ne grossissent pas avec le réglage de taille du texte */
+    }
+    header .tool::after {          /* zone tactile élargie, invisible */
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: inherit;
+    }
+    header .tool svg {
+      width: 18px;
+      height: auto;
+    }
+  }
+  
+  /* =========================================================
+     Outils d'affichage repliés derrière un bouton sur téléphone
+     (même principe que le burger)
+     ========================================================= */
+  
+  /* Ordinateur : bouton d'ouverture et libellés masqués, outils visibles comme avant */
+  #outils-toggle { display: none; }
+  .tool-lbl { display: none; }
+  
+  @media (max-width: 760px) {
+    header #outils-toggle { display: inline-flex; }
+    header #outils-toggle[aria-expanded="true"] {
+      background: var(--btn);
+      border-color: var(--btn);
+      color: #fff;
+    }
+  
+    /* Le panneau : caché par défaut, carte sous le header comme le menu */
+    header .tools {
+      display: none;
+      position: absolute;
+      z-index: 20;
+      top: calc(100% + 10px);
+      right: var(--gutter);
+      width: min(340px, calc(100% - 2 * var(--gutter)));
+      flex-direction: column;
+      align-items: stretch;
+      gap: 8px;
+      padding: 12px;
+      background: var(--card);
+      color: var(--ink);
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      box-shadow: 0 18px 40px #0003;
+    }
+    header .tools.open { display: flex; }
+  
+    /* Dans le panneau : vrais boutons larges avec libellé visible */
+    header .tools .tool {
+      width: 100%;
+      height: auto;
+      min-height: 48px;
+      justify-content: flex-start;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 16px;
+      font-size: 1rem;
+      background: var(--bg);
+      color: var(--ink);
+      border: 1.5px solid var(--ink);
+    }
+    header .tools .tool::after { content: none; }
+    header .tools .tool:hover { transform: none; }
+    header .tools .tool-lbl {
+      display: inline;
+      font-weight: 700;
+    }
+  
+    /* Le réglage de taille s'ouvre à l'intérieur du panneau, pas par-dessus */
+    header .tools .zoomwrap { position: static; }
+    header .tools .pop {
+      position: static;
+      width: auto;
+      margin-top: 8px;
+      box-shadow: none;
+      border-width: 1.5px;
+    }
+  
+    html.anim header .tools.open { animation: menuIn .22s cubic-bezier(.2,.7,.2,1); }
+  }
+  
+  @media (max-width: 420px) {
+    header .tools {
+      right: 16px;
+      width: calc(100% - 32px);
+    }
+  }
+  
+  /* =========================================================
+     Logo du header (papillon + Maryam, SVG en ligne)
+     fill / stroke en currentColor : le logo prend la couleur du texte
+     du header, donc il suit le mode sombre sans deuxième fichier.
+     Hauteur en rem : il grandit avec le réglage « Taille du texte ».
+     ========================================================= */
+  .brand { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .brand-logo { display: block; height: 2.3rem; width: auto; color: currentColor; }
+  @media (max-width: 760px) { .brand-logo { height: 1.9rem; } }
+  @media (max-width: 420px) { .brand-logo { height: 1.6rem; } }
+  /* Contraste élevé Windows : le logo reprend la couleur système du lien */
+  @media (forced-colors: active) { .brand-logo { color: LinkText; } }

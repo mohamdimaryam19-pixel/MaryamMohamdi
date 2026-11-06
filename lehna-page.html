@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Lehna Collection – Robes kabyles authentiques</title>
+  <meta name="description" content="Lehna Collection : robes kabyles authentiques pour mariées, invitées et le quotidien, sélectionnées pour la richesse de leurs motifs traditionnels.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600&family=Playfair+Display:wght@400;500&display=swap">
+
+  <link rel="stylesheet" href="css/styles-lehna-page.css">
+</head>
+
+<body>
+
+  <a class="lien-evitement" href="#contenu">Aller au contenu principal</a>
+
+
+  <header class="en-tete">
+    <div class="en-tete__conteneur">
+
+      <a class="logo" href="index.html">
+        <img class="logo__image" src="images/lehna-logo.png" alt="" width="40" height="44">
+      </a>
+
+      <!-- Bouton du menu (visible seulement sur écran étroit) -->
+      <button
+        class="burger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navigation-principale"
+      >
+        <span class="burger__barres" aria-hidden="true"></span>
+        <span class="visuellement-masque">Menu</span>
+      </button>
+
+      <nav class="navigation" id="navigation-principale" aria-label="Principale">
+        <ul class="navigation__liste" role="list">
+          <li>
+            <a class="navigation__lien" href="index.html" aria-current="page">Accueil</a>
+          </li>
+
+          <li class="navigation__deroulant">
+            <button
+              class="navigation__lien navigation__bouton"
+              type="button"
+              aria-expanded="false"
+              aria-controls="sous-menu-robes"
+            >
+              Nos robes
+              <svg class="navigation__chevron" viewBox="0 0 16 10" aria-hidden="true" focusable="false">
+                <path d="M1 1.5 L8 8.5 L15 1.5" fill="none" stroke="currentColor" stroke-width="1.3"/>
+              </svg>
+            </button>
+
+            <ul class="sous-menu" id="sous-menu-robes" role="list" hidden>
+              <li><a href="robes-mariees.html">Robes mariées</a></li>
+              <li><a href="robes-invitees.html">Robes invitées</a></li>
+              <li><a href="robes-maison.html">Robes maison</a></li>
+              <li><a href="accessoires.html">Accessoires</a></li>
+            </ul>
+          </li>
+
+          <li>
+            <a class="navigation__lien" href="notre-histoire.html">Notre histoire</a>
+          </li>
+
+          <li>
+            <a class="navigation__lien" href="contact.html">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="actions">
+        <a class="actions__bouton" href="recherche.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <circle cx="10.5" cy="10.5" r="7" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M15.5 15.5 L21.5 21.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+          <span class="visuellement-masque">Rechercher</span>
+        </a>
+
+        <a class="actions__bouton" href="panier.html">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path d="M2 3 H5 L7.5 15 H19 L21.5 6 H6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+            <path d="M8.5 11 H20" stroke="currentColor" stroke-width="1.2"/>
+            <circle cx="9.5" cy="19.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="16.5" cy="19.5" r="1.6" fill="none" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span class="visuellement-masque">Panier</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+
+  <main id="contenu">
+
+    <!-- ========== BANDEAU ========== -->
+    <section class="bandeau" aria-labelledby="titre-bandeau">
+      <img
+        class="bandeau__image"
+        src="images/bandeau.png"
+        alt=""
+        width="1920"
+        height="700"
+        fetchpriority="high"
+      >
+      <div class="bandeau__contenu">
+        <h1 class="bandeau__titre" id="titre-bandeau">L’élégance kabyle</h1>
+        <a class="bouton bouton--bandeau" href="collection.html">Découvrez notre collection</a>
+      </div>
+    </section>
+
+
+    <!-- ========== NOUVELLE COLLECTION ========== -->
+    <section class="section section--rose" aria-labelledby="titre-collection">
+      <div class="conteneur">
+
+        <h2 class="titre-section" id="titre-collection">Nouvelle collection</h2>
+
+        <ul class="produits" role="list">
+
+          <li class="produit">
+            <img class="produit__image" src="images/robe-1.jpg" alt="Robe kabyle longue noire, brodée de motifs orange et dorés au buste, à la taille et sur le devant de la jupe." width="600" height="800" loading="lazy">
+            <div class="produit__legende">
+              <h3 class="produit__nom">
+                <a class="produit__lien" href="produit.html">Robe 1</a>
+                <span aria-hidden="true">–</span>
+                <span class="visuellement-masque">,</span>
+                49,99&nbsp;€
+              </h3>
+              <p class="produit__modele">Modèle Thamila</p>
+            </div>
+          </li>
+
+          <li class="produit">
+            <img class="produit__image" src="images/robe-1.jpg" alt="Robe kabyle longue noire, brodée de motifs orange et dorés au buste, à la taille et sur le devant de la jupe." width="600" height="800" loading="lazy">
+            <div class="produit__legende">
+              <h3 class="produit__nom">
+                <a class="produit__lien" href="produit.html">Robe 2</a>
+                <span aria-hidden="true">–</span>
+                <span class="visuellement-masque">,</span>
+                49,99&nbsp;€
+              </h3>
+              <p class="produit__modele">Modèle Thamila</p>
+            </div>
+          </li>
+
+          <li class="produit">
+            <img class="produit__image" src="images/robe-3.jpg" alt="Robe kabyle longue noire, brodée de motifs orange et dorés au buste, à la taille et sur le devant de la jupe." width="600" height="800" loading="lazy">
+            <div class="produit__legende">
+              <h3 class="produit__nom">
+                <a class="produit__lien" href="produit.html">Robe 3</a>
+                <span aria-hidden="true">–</span>
+                <span class="visuellement-masque">,</span>
+                49,99&nbsp;€
+              </h3>
+              <p class="produit__modele">Modèle Thamila</p>
+            </div>
+          </li>
+
+          <li class="produit">
+            <img class="produit__image" src="images/robe-4.jpg" alt="Robe kabyle longue noire, brodée de motifs orange et dorés au buste, à la taille et sur le devant de la jupe." width="600" height="800" loading="lazy">
+            <div class="produit__legende">
+              <h3 class="produit__nom">
+                <a class="produit__lien" href="produit.html">Robe 4</a>
+                <span aria-hidden="true">–</span>
+                <span class="visuellement-masque">,</span>
+                49,99&nbsp;€
+              </h3>
+              <p class="produit__modele">Modèle Thamila</p>
+            </div>
+          </li>
+
+        </ul>
+
+        <p class="centre">
+          <a class="bouton bouton--contour" href="collection.html">Tout découvrir<span class="visuellement-masque"> : la nouvelle collection</span></a>
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ========== CATÉGORIES ========== -->
+    <section class="section section--rose section--serree" aria-labelledby="titre-categories">
+      <div class="conteneur">
+
+        <h2 class="titre-section" id="titre-categories">Catégories</h2>
+
+        <ul class="categories" role="list">
+          <li>
+            <a class="categorie" href="robes-mariees.html">
+              <img class="categorie__image" src="images/categorie-mariees.jpg" alt="" width="400" height="400" loading="lazy">
+              <span class="categorie__nom">Robes mariées</span>
+            </a>
+          </li>
+          <li>
+            <a class="categorie" href="robes-invitees.html">
+              <img class="categorie__image" src="images/categorie-invitees.jpg" alt="" width="400" height="400" loading="lazy">
+              <span class="categorie__nom">Robes invitées</span>
+            </a>
+          </li>
+          <li>
+            <a class="categorie" href="robes-maison.html">
+              <img class="categorie__image" src="images/categorie-maison.jpg" alt="" width="400" height="400" loading="lazy">
+              <span class="categorie__nom">Robes maison</span>
+            </a>
+          </li>
+          <li>
+            <a class="categorie" href="accessoires.html">
+              <img class="categorie__image" src="images/categorie-accessoires.jpg" alt="" width="400" height="400" loading="lazy">
+              <span class="categorie__nom">Accessoires</span>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </section>
+
+
+    <!-- ========== LA TRADITION KABYLE ========== -->
+    <section class="section tradition" aria-labelledby="titre-tradition">
+      <div class="conteneur">
+
+        <h2 class="tradition__titre" id="titre-tradition">La Tradition Kabyle</h2>
+
+        <p class="tradition__texte">
+          Chaque robe de notre collection est sélectionnée pour son authenticité
+          et la richesse de ses motifs traditionnels. Nous vous proposons des
+          pièces exceptionnelles qui célèbrent l’héritage kabyle et sa beauté
+          intemporelle.
+        </p>
+
+        <ul class="engagements" role="list">
+
+          <li class="engagement">
+            <span class="engagement__icone">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="7.5" r="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="7.5" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="16.5" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <path d="M12 14 V21" stroke="currentColor" stroke-width="1.4"/>
+              </svg>
+            </span>
+            <h3 class="engagement__titre">Authenticité garantie</h3>
+            <p class="engagement__texte">Robes kabyles authentiques sélectionnées avec expertise</p>
+          </li>
+
+          <li class="engagement">
+            <span class="engagement__icone">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 3 C12.8 9 15 11.2 21 12 C15 12.8 12.8 15 12 21 C11.2 15 9 12.8 3 12 C9 11.2 11.2 9 12 3 Z" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3 class="engagement__titre">Qualité supérieure</h3>
+            <p class="engagement__texte">Tissus nobles et finitions impeccables pour chaque pièce</p>
+          </li>
+
+          <li class="engagement">
+            <span class="engagement__icone">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="1.4"/>
+                <circle cx="12" cy="12" r="2" fill="currentColor"/>
+              </svg>
+            </span>
+            <h3 class="engagement__titre">Prix justes</h3>
+            <p class="engagement__texte">Les meilleures robes kabyles à des prix accessibles</p>
+          </li>
+
+        </ul>
+
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ========== PIED DE PAGE ========== -->
+  <footer class="pied-de-page">
+    <div class="conteneur pied-de-page__grille">
+
+      <div class="pied-de-page__colonne">
+        <h2 class="pied-de-page__titre">Lehna Collection</h2>
+        <p>Robes kabyles authentiques, choisies pour la richesse de leurs motifs et la qualité de leurs finitions.</p>
+      </div>
+
+      <nav class="pied-de-page__colonne" aria-labelledby="titre-pied-navigation">
+        <h2 class="pied-de-page__titre" id="titre-pied-navigation">Navigation</h2>
+        <ul class="pied-de-page__liens" role="list">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="collection.html">Nos robes</a></li>
+          <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="pied-de-page__colonne">
+        <h2 class="pied-de-page__titre">Contact</h2>
+        <p><a href="mailto:contact@lehnacollection.com">contact@lehnacollection.com</a></p>
+      </div>
+
+    </div>
+
+    <p class="pied-de-page__mention">© 2026 Lehna Collection</p>
+  </footer>
+
+
+  <!-- Menu burger (téléphone) et menu déroulant « Nos robes » -->
+  <script>
+    (function () {
+      var burger = document.querySelector('.burger');
+      var nav = document.getElementById('navigation-principale');
+      var bouton = document.querySelector('.navigation__bouton');
+      var menu = document.getElementById('sous-menu-robes');
+
+      /* --- Menu burger ---
+         Sans JavaScript, la navigation reste visible :
+         on ne la replie qu'une fois le script chargé. */
+      function fermerNavigation(rendreFocus) {
+        burger.setAttribute('aria-expanded', 'false');
+        nav.classList.add('navigation--fermee');
+        if (rendreFocus) burger.focus();
+      }
+
+      if (burger && nav) {
+        nav.classList.add('navigation--fermee');
+
+        burger.addEventListener('click', function () {
+          var ouvert = burger.getAttribute('aria-expanded') === 'true';
+          burger.setAttribute('aria-expanded', String(!ouvert));
+          nav.classList.toggle('navigation--fermee', ouvert);
+        });
+      }
+
+      /* --- Sous-menu « Nos robes » --- */
+      function fermerSousMenu(rendreFocus) {
+        bouton.setAttribute('aria-expanded', 'false');
+        menu.hidden = true;
+        if (rendreFocus) bouton.focus();
+      }
+
+      if (bouton && menu) {
+        bouton.addEventListener('click', function () {
+          var ouvert = bouton.getAttribute('aria-expanded') === 'true';
+          bouton.setAttribute('aria-expanded', String(!ouvert));
+          menu.hidden = ouvert;
+        });
+
+        document.addEventListener('click', function (e) {
+          if (!menu.hidden && !bouton.parentElement.contains(e.target)) fermerSousMenu(false);
+        });
+
+        bouton.parentElement.addEventListener('focusout', function (e) {
+          if (!bouton.parentElement.contains(e.relatedTarget)) fermerSousMenu(false);
+        });
+      }
+
+      /* --- Échap : ferme d'abord le sous-menu, puis le menu burger --- */
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+
+        if (menu && !menu.hidden) {
+          fermerSousMenu(true);
+        } else if (burger && burger.getAttribute('aria-expanded') === 'true') {
+          fermerNavigation(true);
+        }
+      });
+    })();
+  </script>
+
+</body>
+</html>

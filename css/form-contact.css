@@ -1,0 +1,91 @@
+/* Formulaire de contact — états d'erreur, focus, statut
+   L'erreur n'est jamais portée par la couleur seule (RGAA 3.1 / WCAG 1.4.1) :
+   barre latérale + pictogramme + texte. */
+
+   :root { --form-erreur: #b3261e; --form-succes: #1e6b3a; }               /* ≥ 6:1 sur blanc */
+   @media (prefers-color-scheme: dark) {
+     :root:not([data-theme="light"]) { --form-erreur: #ffb4ab; --form-succes: #8fd8a6; }
+   }
+   :root[data-theme="dark"] { --form-erreur: #ffb4ab; --form-succes: #8fd8a6; }
+   
+   /* Aide placée entre libellé et champ */
+   .formulaire .champ .aide { margin: .25rem 0 .5rem; }
+   
+   /* Le libellé reste visible sous le header quand on arrive depuis le récapitulatif
+      (ajuster à la hauteur réelle du header) */
+   .formulaire .champ label { scroll-margin-top: 6rem; }
+   
+   /* Focus : 3px, contraste garanti car il suit la couleur du texte (clair et sombre) */
+   .formulaire :is(input, select, textarea, button):focus-visible,
+   .erreurs__liste a:focus-visible {
+     outline: 3px solid currentColor;
+     outline-offset: 3px;
+   }
+   
+   /* ---------- Champ en erreur ---------- */
+   .champ--erreur {
+     border-left: 4px solid var(--form-erreur);
+     padding-left: .9rem;
+   }
+   .champ--erreur :is(input, textarea) { border-color: var(--form-erreur); }
+   
+   .champ-erreur {
+     display: flex;
+     gap: .5em;
+     align-items: flex-start;
+     margin: .25rem 0 .5rem;
+     color: var(--form-erreur);
+     font-weight: 700;
+   }
+   .champ-erreur[hidden] { display: none; }
+   .champ-erreur::before,
+   .form-statut--erreur::before {
+     content: "!";
+     flex: none;
+     display: inline-grid;
+     place-items: center;
+     width: 1.3em;
+     height: 1.3em;
+     border: 2px solid currentColor;   /* reste visible en contraste élevé Windows */
+     border-radius: 50%;
+     font-size: .85em;
+     line-height: 1;
+   }
+   
+   /* ---------- Récapitulatif ---------- */
+   .erreurs {
+     border: 3px solid var(--form-erreur);
+     border-radius: 12px;
+     padding: 1rem 1.25rem;
+     margin: 0 0 1.5rem;
+   }
+   .erreurs[hidden] { display: none; }
+   .erreurs__titre { margin: 0 0 .5rem; font-size: 1.1rem; }
+   .erreurs__titre:focus { outline: none; }
+   .erreurs:has(.erreurs__titre:focus) { outline: 3px solid currentColor; outline-offset: 3px; }
+   .erreurs__liste { margin: 0; padding-left: 1.2rem; }
+   .erreurs__liste a {
+     color: var(--form-erreur);
+     font-weight: 700;
+     text-decoration: underline;
+     text-underline-offset: .2em;
+   }
+   
+   /* ---------- Message de statut (ne jamais le passer en display:none) ---------- */
+   .form-statut { margin: 1rem 0 0; display: flex; gap: .5em; align-items: flex-start; }
+   .form-statut--succes { color: var(--form-succes); font-weight: 700; }
+   .form-statut--succes::before { content: "✓"; flex: none; }
+   .form-statut--erreur { color: var(--form-erreur); font-weight: 700; }
+   .form-statut a { color: inherit; }
+   
+   /* Bouton pendant l'envoi */
+   .formulaire .btn[aria-disabled="true"] { opacity: .7; cursor: progress; }
+   
+   /* Champ message : redimensionnement vertical seulement */
+   .formulaire textarea { resize: vertical; min-height: 8rem; }
+   
+   /* Contraste élevé Windows : le dégradé disparaît, on garde un contour au bouton */
+   @media (forced-colors: active) {
+     .formulaire .btn { border: 2px solid ButtonText; }
+     .champ--erreur { border-left-color: CanvasText; }
+   }
